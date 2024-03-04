@@ -8,7 +8,7 @@ This RESTful API facilitates the management of a university's timetable system, 
 1. **Clone the repository:**
 
     ```bash
-    git clone <repository_url>
+    git clone https://github.com/sliitcsse/assignment-01-IsuruX98.git
     cd assignment-01-IsuruX98
     ```
 
