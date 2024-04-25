@@ -1,0 +1,42 @@
+config:
+  target: "http://localhost:5000"
+
+scenarios:
+  - name: "Create Room Booking"
+    flow:
+      - post:
+          url: "/api/roomBooking"
+          json:
+            userID: "65e6ae5890071ec7fc90bf8e" # Replace with actual user ID
+            roomID: "65e6eb989ff88c5d240db0d2" # Replace with actual room ID
+            reason: "Meeting"
+            day: "2024-04-01"
+            startTime: "09:00"
+            endTime: "10:00"
+
+  - name: "Update Room Booking"
+    flow:
+      - put:
+          url: "/api/roomBooking/{{ 65e6fae533ca3355bcd9fdf1 }}" # Replace {{ booking_id }} with an actual booking ID
+          json:
+            userID: "65e6ae5890071ec7fc90bf8e" # Replace with actual user ID
+            roomID: "65e6eb989ff88c5d240db0d2" # Replace with actual room ID
+            reason: "Updated Meeting"
+            day: "2024-04-01"
+            startTime: "09:30"
+            endTime: "10:30"
+
+  - name: "Get All Room Bookings"
+    flow:
+      - get:
+          url: "/api/roomBooking"
+
+  - name: "Get Room Booking by ID"
+    flow:
+      - get:
+          url: "/api/roomBooking/{{ 65e6fae533ca3355bcd9fdf1 }}" # Replace {{ booking_id }} with an actual booking ID
+
+  - name: "Delete Room Booking"
+    flow:
+      - delete:
+          url: "/api/roomBooking/{{ 65e6fae533ca3355bcd9fdf1 }}" # Replace {{ booking_id }} with an actual booking ID

@@ -1,0 +1,33 @@
+config:
+  target: "http://localhost:5000"
+
+scenarios:
+  - name: "Create Faculty"
+    flow:
+      - post:
+          url: "/api/faculty"
+          json:
+            name: "Test Faculty"
+
+  - name: "Get All Faculties"
+    flow:
+      - get:
+          url: "/api/faculty"
+
+  - name: "Get Faculty by ID"
+    flow:
+      - get:
+          url: "/api/faculty/<65e6d0e09c4659f7c54d2de9>" # Replace <faculty_id> with the ID of an existing faculty
+
+  - name: "Update Faculty"
+    flow:
+      - put:
+          url: "/api/faculty/<65e6d0e09c4659f7c54d2de9>" # Replace <faculty_id> with the ID of the faculty want to update
+          json:
+            name: "Updated Faculty Name" # Replace with the updated name of the faculty
+
+  - name: "Delete Faculty"
+    flow:
+      - delete:
+          url: "/api/faculty/<65e6d0e09c4659f7c54d2de9>" # Replace <faculty_id> with the ID of the faculty want to delete
+

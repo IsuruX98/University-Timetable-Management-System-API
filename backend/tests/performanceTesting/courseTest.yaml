@@ -1,0 +1,45 @@
+config:
+  target: "http://localhost:5000"
+
+scenarios:
+  - name: "Create Course"
+    flow:
+      - post:
+          url: "/api/course"
+          json:
+            courseName: "Test Course"
+            code: "TEST123"
+            description: "Test Description"
+            credits: 3
+
+  - name: "Assign Faculty to Course"
+    flow:
+      - post:
+          url: "/api/course/65e6eb989ff88c5d240db0d2/assign-faculty" # Replace with actual course ID
+          json:
+            facultyID: "65e6d0e09c4659f7c54d2de9" # Replace with actual faculty ID
+
+  - name: "Get All Courses"
+    flow:
+      - get:
+          url: "/api/course"
+
+  - name: "Get Course by ID"
+    flow:
+      - get:
+          url: "/api/course/65e6d2dd9c4659f7c54d2df9" # Replace with actual course ID
+
+  - name: "Update Course"
+    flow:
+      - put:
+          url: "/api/course/65e6d2dd9c4659f7c54d2df9" # Replace with actual course ID
+          json:
+            courseName: "Updated Course Name"
+            code: "UPDATED123"
+            description: "Updated Description"
+            credits: 4
+
+  - name: "Delete Course"
+    flow:
+      - delete:
+          url: "/api/course/65e6d2dd9c4659f7c54d2df9" # Replace with actual course ID

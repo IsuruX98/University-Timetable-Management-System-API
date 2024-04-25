@@ -1,0 +1,38 @@
+config:
+  target: "http://localhost:5000"
+
+scenarios:
+  - name: "Create Resource Booking"
+    flow:
+      - post:
+          url: "/api/resourceBooking"
+          json:
+            resourceID: "65e705452b77faf574ab49ac" # Replace with actual resource ID
+            day: "2024-04-01"
+            startTime: "09:00"
+            endTime: "10:00"
+
+  - name: "Update Resource Booking"
+    flow:
+      - put:
+          url: "/api/resourceBooking/{{ 65fd520b75dd2850159d0455 }}" # Replace {{ booking_id }} with an actual booking ID
+          json:
+            resourceID: "resource_id" # Replace with actual resource ID
+            day: "2024-04-01"
+            startTime: "09:30"
+            endTime: "10:30"
+
+  - name: "Get All Resource Bookings"
+    flow:
+      - get:
+          url: "/api/resourceBooking"
+
+  - name: "Get Resource Booking by ID"
+    flow:
+      - get:
+          url: "/api/resourceBooking/{{ 65fd520b75dd2850159d0455 }}" # Replace {{ booking_id }} with an actual booking ID
+
+  - name: "Delete Resource Booking"
+    flow:
+      - delete:
+          url: "/api/resourceBooking/{{ 65fd520b75dd2850159d0455 }}" # Replace {{ booking_id }} with an actual booking ID

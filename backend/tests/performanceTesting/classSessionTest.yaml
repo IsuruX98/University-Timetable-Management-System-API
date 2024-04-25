@@ -1,0 +1,44 @@
+config:
+  target: "http://localhost:5000"
+
+scenarios:
+  - name: "Add Class Session"
+    flow:
+      - post:
+          url: "/api/timetable/"
+          json:
+            courseID: "65e6d0e09c4659f7c54d2de9" # Replace with actual course ID
+            week: 1
+            day: "Monday"
+            startTime: "09:00"
+            endTime: "11:00"
+            facultyID: "65e6d0e09c4659f7c54d2de9" # Replace with actual faculty ID
+            location: "Room 101"
+
+  - name: "Update Class Session"
+    flow:
+      - put:
+          url: "/api/timetable/65fd4aef87df4a3f554aad29" # Replace with actual session ID
+          json:
+            courseID: "65e6d0e09c4659f7c54d2de9" # Replace with actual course ID
+            week: 1
+            day: "Monday"
+            startTime: "10:00"
+            endTime: "12:00"
+            facultyID: "65e6d0e09c4659f7c54d2de9" # Replace with actual faculty ID
+            location: "Room 101"
+
+  - name: "Get All Class Sessions"
+    flow:
+      - get:
+          url: "/api/timetable/"
+
+  - name: "Get Class Session by ID"
+    flow:
+      - get:
+          url: "/api/timetable/65fd4aef87df4a3f554aad29" # Replace with actual session ID
+
+  - name: "Delete Class Session"
+    flow:
+      - delete:
+          url: "/api/timetable/65fd4aef87df4a3f554aad29" # Replace with actual session ID

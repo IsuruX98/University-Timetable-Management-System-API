@@ -1,0 +1,55 @@
+config:
+  target: "http://localhost:5000"
+
+scenarios:
+  - name: "User Authentication"
+    flow:
+      - post:
+          url: "/api/auth"
+          json:
+            email: "isuruisuru@gmail.com" # Replace with a valid user email
+            password: "1234" # Replace with the corresponding password
+
+  - name: "User Registration"
+    flow:
+      - post:
+          url: "/api/register"
+          json:
+            name: "Test User"
+            email: "test@example.com" # Replace with a unique email for testing
+            mobile: "1234567890" # Replace with a valid mobile number
+            password: "testPassword" # Replace with a strong password
+
+  - name: "User Profile"
+    flow:
+      - get:
+          url: "/api/profile"
+          headers:
+            Authorization: Bearer <eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWU2YWU1ODkwMDcxZWM3ZmM5MGJmOGUiLCJpYXQiOjE3MTExMDYxNjgsImV4cCI6MTcxMzY5ODE2OH0.Un0awhghAq-9uZQNvVQNV9ggJg3SJyPIvvEZKDPffMg> # Replace <token> with a valid JWT token obtained after successful authentication
+
+  - name: "Update User Profile"
+    flow:
+      - put:
+          url: "/api/profile"
+          headers:
+            Authorization: Bearer <eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWU2YWU1ODkwMDcxZWM3ZmM5MGJmOGUiLCJpYXQiOjE3MTExMDYxNjgsImV4cCI6MTcxMzY5ODE2OH0.Un0awhghAq-9uZQNvVQNV9ggJg3SJyPIvvEZKDPffMg> # Replace <token> with a valid JWT token obtained after successful authentication
+          json:
+            name: "Updated Name"
+            email: "updated@example.com" # Replace with an updated email
+            mobile: "0987654321" # Replace with an updated mobile number
+            password: "updatedPassword" # Replace with an updated password
+
+  - name: "Get All User Profiles (Admin)"
+    flow:
+      - get:
+          url: "/api/allProfiles"
+          headers:
+            Authorization: Bearer <eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWU2YWU1ODkwMDcxZWM3ZmM5MGJmOGUiLCJpYXQiOjE3MTExMDYxNjgsImV4cCI6MTcxMzY5ODE2OH0.Un0awhghAq-9uZQNvVQNV9ggJg3SJyPIvvEZKDPffMg> # Replace <admin_token> with a valid JWT token for an admin user
+
+  - name: "Logout User"
+    flow:
+      - post:
+          url: "/api/logout"
+          headers:
+            Authorization: Bearer <eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWU2YWU1ODkwMDcxZWM3ZmM5MGJmOGUiLCJpYXQiOjE3MTExMDYxNjgsImV4cCI6MTcxMzY5ODE2OH0.Un0awhghAq-9uZQNvVQNV9ggJg3SJyPIvvEZKDPffMg> # Replace <token> with a valid JWT token
+

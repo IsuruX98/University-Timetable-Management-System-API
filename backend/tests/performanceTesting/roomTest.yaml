@@ -1,0 +1,38 @@
+config:
+  target: "http://localhost:5000"
+
+scenarios:
+  - name: "Create Room"
+    flow:
+      - post:
+          url: "/api/room"
+          json:
+            roomName: "Test Room"
+            building: "Test Building"
+            floor: 1
+            capacity: 50
+
+  - name: "Update Room"
+    flow:
+      - put:
+          url: "/api/room/65e6eb989ff88c5d240db0d2"
+          json:
+            roomName: "Updated Room Name"
+            building: "Updated Building Name"
+            floor: 2
+            capacity: 60
+
+  - name: "Get All Rooms"
+    flow:
+      - get:
+          url: "/api/room"
+
+  - name: "Get Room by ID"
+    flow:
+      - get:
+          url: "/api/room/65e6eb989ff88c5d240db0d2"
+
+  - name: "Delete Room"
+    flow:
+      - delete:
+          url: "/api/room/65e6eb989ff88c5d240db0d2"

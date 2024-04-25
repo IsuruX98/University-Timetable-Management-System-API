@@ -1,0 +1,24 @@
+config:
+  target: "http://localhost:5000"
+
+scenarios:
+  - name: "Enroll User in Course"
+    flow:
+      - post:
+          url: "/api/enrollment/enroll"
+          json:
+            userID: "65e6ae5890071ec7fc90bf8e" # Replace with actual user ID
+            courseID: "65e6d2dd9c4659f7c54d2df9" # Replace with actual course ID
+
+  - name: "Unenroll User from Course"
+    flow:
+      - post:
+          url: "/api/enrollment/unenroll"
+          json:
+            userID: "65e6ae5890071ec7fc90bf8e" # Replace with actual user ID
+            courseID: "65e6d2dd9c4659f7c54d2df9" # Replace with actual course ID
+
+  - name: "Get All Enrollments"
+    flow:
+      - get:
+          url: "/api/enrollment/"

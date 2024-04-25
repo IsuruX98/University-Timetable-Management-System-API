@@ -1,0 +1,34 @@
+config:
+  target: "http://localhost:5000"
+
+scenarios:
+  - name: "Create Resource"
+    flow:
+      - post:
+          url: "/api/resource"
+          json:
+            resourceName: "Test Resource"
+            description: "Test Description"
+
+  - name: "Update Resource"
+    flow:
+      - put:
+          url: "/api/resource/65e705452b77faf574ab49ac" # Replace with actual resource ID
+          json:
+            resourceName: "Updated Resource Name"
+            description: "Updated Description"
+
+  - name: "Get All Resources"
+    flow:
+      - get:
+          url: "/api/resource"
+
+  - name: "Get Resource by ID"
+    flow:
+      - get:
+          url: "/api/resource/65e705452b77faf574ab49ac" # Replace with actual resource ID
+
+  - name: "Delete Resource"
+    flow:
+      - delete:
+          url: "/api/resource/65e705452b77faf574ab49ac" # Replace with actual resource ID
