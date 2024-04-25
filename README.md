@@ -1,83 +1,87 @@
-# IT21169380 - Thuduwage I.M.H.G
 # University Timetable Management System API
 
-This RESTful API facilitates the management of a university's timetable system, allowing for the creation, modification, and querying of class schedules for students, faculty, and administrative staff.
+Welcome to the University Timetable Management System API! This RESTful API facilitates the creation, modification, and querying of class schedules for students, faculty, and administrative staff. With an emphasis on secure access and data integrity, this project simulates real-world software development challenges and solutions within an educational institution context.
 
 ## Setup Instructions
 
-1. **Clone the repository:**
+1. **Get Started:**
 
     ```bash
     git clone https://github.com/sliitcsse/assignment-01-IsuruX98.git
-    cd assignment-01-IsuruX98
+    cd assignment-01-IsuruX98/backend
     ```
 
-2. **Install dependencies:**
+2. **Install Dependencies:**
 
     ```bash
     npm install
     ```
 
-3. **Set up environment variables:**
-
-    - Create a `.env` file based on `.env.example`.
-    - Modify the `.env` file to include your MongoDB connection string, JWT secret key, and any other necessary configurations.
-
-4. **Start the server:**
+3. **Launch the Server:**
 
     ```bash
     npm start
     ```
 
-## API Endpoint Documentation
+## Folder Structure
+    
+![Screenshot 2024-03-23 185911](https://github.com/sliitcsse/assignment-01-IsuruX98/assets/104721314/4a34a82f-effc-482c-945c-95fa9740a7cb)
 
-The API endpoints are documented using Swagger. Once the server is running, you can access the Swagger UI at `http://localhost:<PORT>/api-docs` to view and interact with the documentation.
 
-## Running Tests
+## API Documentation
 
-### Unit Testing
+Discover and interact with the API endpoints using the user-friendly Postman UI. [Click here](https://documenter.getpostman.com/view/24967536/2sA35A95ZP#ca43a3bd-7147-451b-a1a2-b0fb3b6ef3a2) to access detailed documentation that thoroughly describes each endpoint, including request parameters, responses, and examples. You can effortlessly test each endpoint directly within Postman, ensuring a seamless experience while exploring the capabilities of the API.
 
-To run unit tests, use the following command:
+sample screenshot ->
 
-```bash
-npm test
-```
+![Screenshot (47)](https://github.com/sliitcsse/assignment-01-IsuruX98/assets/104721314/43ed2b1d-1df4-4eee-b2bc-d65f4c872866)
 
-### Integration Testing
+## Testing
 
-Integration tests ensure different parts of the application work together seamlessly. Before running integration tests, ensure you have a separate test database set up.
-
-1. Create a test database in MongoDB.
-2. Set up a separate environment configuration for testing (e.g., `.env.test`) with the test database connection string.
-3. Update the `config/db.js` file to use the test environment configuration when running tests.
-4. Run integration tests using the following command:
+Run comprehensive tests with Jest. Install Jest using:
 
 ```bash
-npm run test:integration
+npm install --save-dev jest
 ```
+
+Testing files are located in the `tests/` directory. To run specific tests, use:
+
+```bash
+npx jest <filename.ext>
+```
+
+sample test run screenshot ->
+
+![Screenshot 2024-03-23 190523](https://github.com/sliitcsse/assignment-01-IsuruX98/assets/104721314/190d317e-c1d2-4531-abe1-4104b310b811)
+
 
 ### Performance Testing
 
-Performance tests evaluate the API's performance under various loads. Before running performance tests, ensure you have a tool like Artillery.io installed and configured.
+Evaluate performance using scripts in `tests/performanceTesting`. Ensure Artillery.io is installed globally:
 
-1. Install Artillery.io globally if you haven't already:
+```bash
+npm install -g artillery
+```
 
-    ```bash
-    npm install -g artillery
-    ```
+Before running performance tests, ensure PowerShell is opened as an administrator and set the execution policy:
 
-2. Write your performance test scripts in the `tests/performance` directory.
+```bash
+Set-ExecutionPolicy RemoteSigned
+```
 
-3. Run performance tests using the following command:
+Then execute performance tests with:
 
-    ```bash
-    artillery run <test_script.yml>
-    ```
+```bash
+artillery run <filename.ext>
+```
+
+### Security Testing
+
+Ensure backend security with OWASP ZAP. Run the Spider and Active Scan, and review the HTML report located in `tests/securityTesting`.
+
+![Screenshot (48)](https://github.com/sliitcsse/assignment-01-IsuruX98/assets/104721314/fda250fc-3eff-4fd8-90e3-3ec47bf47484)
+
 
 ## Additional Notes
 
-- Ensure MongoDB is running before starting the server.
-- Make sure to handle errors, validations, and security aspects appropriately throughout the codebase.
-
-
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/MhkFIDKy)
+- MongoDB must be operational before launching the server.
